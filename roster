@@ -1,0 +1,17 @@
+master01:
+  host: 13.250.1.63 # The IP addr or DNS hostname
+  user: ubuntu         # Remote executions will be executed as user fred
+  priv: /Users/imankurniawan/.ssh/id_rsa  # The password to use for login, if omitted, keys are used
+  sudo: True         # Whether to sudo to root, not enabled by default
+
+minion01:
+  host: 18.140.57.85 # The IP addr or DNS hostname
+  user: ubuntu         # Remote executions will be executed as user fred
+  priv: /Users/imankurniawan/.ssh/id_rsa  
+  sudo: True         # Whether to sudo to root, not enabled by default
+
+syndic01:
+  host: 13.229.228.166 # The IP addr or DNS hostname
+  user: ubuntu         # Remote executions will be executed as user fred
+  priv: /Users/imankurniawan/.ssh/id_rsa  
+  sudo: True         # Whether to sudo to root, not enabled by default

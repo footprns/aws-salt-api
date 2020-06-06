@@ -1,0 +1,5 @@
+file_roots:
+  base:
+    - /Users/imankurniawan/Documents/repo/aws-salt-api/salt
+  dev:
+    - /Users/imankurniawan

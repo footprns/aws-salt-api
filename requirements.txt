@@ -1,0 +1,6 @@
+requests
+PyYAML==5.1.2
+distro
+setuptools
+salt
+salt-ssh

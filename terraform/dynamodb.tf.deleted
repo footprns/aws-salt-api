@@ -1,0 +1,37 @@
+module "dynamodb-test" {
+  source = "./modules/dynamodb"
+  name = "Movies"
+  hash_key = "year"
+  range_key = "title"
+#   billing_mode = "PAY_PER_REQUEST"
+  billing_mode = "PROVISIONED"
+  attribute = [
+  {
+    name = "year"
+    type   = "N"
+  },
+  {
+    name = "title"
+    type   = "S"
+  }
+  ]
+}
+
+module "iam-role" {
+  source = "./modules/iam-role"
+  name = "samplepolicytodb"
+  assume_role_policy = <<POLICY
+${file("${path.module}/accesstodynamodb.json")}
+POLICY
+  policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+}
+
+module "dynamodb-endpoint" {
+  source = "./modules/endpoint"
+  name = "dynamodb-endpoint"
+  vpc_id = "vpc-4cc2dd2b"
+  service_name = "com.amazonaws.ap-southeast-1.dynamodb"
+  route_table_id = "rtb-57ef8c31" # default route table
+}
+
+
